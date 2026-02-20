@@ -102,7 +102,7 @@
 	<!-- Stok alert badge -->
 	{#if stats.stokHabis > 0 || stats.stokMenipis > 0}
 		<button
-			class="mx-3 mt-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-400 hover:bg-amber-500/25 transition-colors"
+			class="mx-3 mt-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500 border border-amber-500 text-black font-semibold hover:bg-amber-500/25 transition-colors"
 			onclick={() => goto('/barang')}
 		>
 			<AlertTriangle class="size-3.5 flex-shrink-0" />
