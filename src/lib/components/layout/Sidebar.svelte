@@ -77,22 +77,22 @@
 
 <aside
 	class={cn(
-		'gradient-sidebar fixed top-0 left-0 bottom-0 z-40 w-64 flex flex-col transition-transform duration-300',
+		'bg-sidebar text-sidebar-foreground border-r border-sidebar-border fixed top-0 left-0 bottom-0 z-40 w-64 flex flex-col transition-transform duration-300',
 		$sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
 		'lg:relative lg:translate-x-0 lg:z-auto'
 	)}
 >
 	<!-- Logo -->
 	<div class="flex items-center gap-3 px-5 py-5 border-b border-sidebar-border">
-		<div class="size-9 rounded-xl gradient-blue flex items-center justify-center shadow-lg flex-shrink-0">
+		<div class="size-9 rounded-xl gradient-blue flex items-center justify-center shadow-md flex-shrink-0">
 			<Package class="size-5 text-white" />
 		</div>
 		<div>
-			<p class="text-white font-bold text-sm leading-tight">ManajemenBarang</p>
-			<p class="text-white/40 text-xs">Sistem Inventori</p>
+			<p class="text-sidebar-foreground font-bold text-sm leading-tight">ManajemenBarang</p>
+			<p class="text-sidebar-foreground/60 text-xs">Sistem Inventori</p>
 		</div>
 		<button
-			class="ml-auto text-white/40 hover:text-white lg:hidden transition-colors"
+			class="ml-auto text-sidebar-foreground/50 hover:text-sidebar-foreground lg:hidden transition-colors"
 			onclick={() => ($sidebarOpen = false)}
 		>
 			<X class="size-4" />
@@ -124,33 +124,32 @@
 						class={cn(
 							'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group',
 							isChildActive(item.children)
-								? 'bg-white/10 text-white'
-								: 'text-white/60 hover:text-white hover:bg-white/8'
+								? 'bg-sidebar-accent text-sidebar-accent-foreground'
+								: 'text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50'
 						)}
 						onclick={() => toggleMenu(item.label)}
 					>
 						<item.icon class="size-4.5 flex-shrink-0" />
 						<span class="flex-1 text-left">{item.label}</span>
 						{#if openMenus[item.label]}
-							<ChevronDown class="size-3.5 text-white/40" />
+							<ChevronDown class="size-3.5 text-sidebar-foreground/50 transition-transform" />
 						{:else}
-							<ChevronRight class="size-3.5 text-white/40" />
+							<ChevronRight class="size-3.5 text-sidebar-foreground/50 transition-transform" />
 						{/if}
 					</button>
 
 					{#if openMenus[item.label]}
-						<div class="ml-4 mt-0.5 space-y-0.5">
+						<div class="ml-4 mt-0.5 space-y-0.5 border-l border-sidebar-border pl-1">
 							{#each item.children as child}
 								<a
 									href={child.href}
 									class={cn(
-										'flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all duration-200',
+										'flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all duration-200 relative',
 										isActive(child.href)
-											? 'bg-white/15 text-white font-medium'
-											: 'text-white/50 hover:text-white hover:bg-white/8'
+											? 'text-sidebar-accent-foreground font-medium bg-sidebar-accent/50 before:absolute before:left-[-5px] before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-5 before:bg-primary before:rounded-full'
+											: 'text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/30'
 									)}
 								>
-									<span class="size-1 rounded-full bg-current opacity-60"></span>
 									{child.label}
 								</a>
 							{/each}
@@ -162,10 +161,10 @@
 				<a
 					href={item.href}
 					class={cn(
-						'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200',
+						'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative',
 						isActive(item.href ?? '')
-							? 'bg-blue-500/20 text-white border border-blue-500/30'
-							: 'text-white/60 hover:text-white hover:bg-white/8'
+							? 'bg-sidebar-accent text-sidebar-accent-foreground before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-6 before:bg-primary before:rounded-r-full'
+							: 'text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50'
 					)}
 				>
 					<item.icon class="size-4.5 flex-shrink-0" />
@@ -176,14 +175,14 @@
 	</nav>
 
 	<!-- Footer -->
-	<div class="px-4 py-4 border-t border-sidebar-border">
+	<div class="px-4 py-4 border-t border-sidebar-border bg-sidebar">
 		<div class="flex items-center gap-3">
-			<div class="size-8 rounded-full gradient-teal flex items-center justify-center text-white text-xs font-bold">
+			<div class="size-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold ring-1 ring-primary/20">
 				AD
 			</div>
 			<div>
-				<p class="text-white text-xs font-medium">Admin</p>
-				<p class="text-white/40 text-xs">Administrator</p>
+				<p class="text-sidebar-foreground text-xs font-medium">Admin</p>
+				<p class="text-sidebar-foreground/50 text-xs">Administrator</p>
 			</div>
 		</div>
 	</div>

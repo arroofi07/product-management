@@ -17,7 +17,7 @@
 	/>
 </svelte:head>
 
-<div class="flex h-screen overflow-hidden bg-background">
+<div class="flex h-screen overflow-hidden bg-background selection:bg-primary/20 selection:text-primary">
 	<!-- Sidebar -->
 	<Sidebar />
 
