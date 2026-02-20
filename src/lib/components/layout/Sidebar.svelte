@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import logo from '$lib/assets/logo.png';
 	import {
 		LayoutDashboard, Package, Tags, Truck, ArrowDownToLine,
 		ArrowUpFromLine, BarChart3, Settings, ChevronDown, ChevronRight,
@@ -85,7 +86,7 @@
 	<!-- Logo -->
 	<div class="flex items-center gap-3 px-5 py-5 border-b border-sidebar-border">
 		<div class="size-9 rounded-xl gradient-blue flex items-center justify-center shadow-md flex-shrink-0">
-			<Package class="size-5 text-white" />
+			<img src={logo} alt="">
 		</div>
 		<div>
 			<p class="text-sidebar-foreground font-bold text-sm leading-tight">ManajemenBarang</p>

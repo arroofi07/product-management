@@ -3,6 +3,7 @@
 	import Sidebar from '$lib/components/layout/Sidebar.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import { sidebarOpen } from '$lib/stores';
+	import logo from '$lib/assets/logo.png';
 
 	let { children } = $props();
 </script>
@@ -15,6 +16,7 @@
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
 		rel="stylesheet"
 	/>
+	<link rel="icon" type="image/png" href={logo} />
 </svelte:head>
 
 <div class="flex h-screen overflow-hidden bg-background selection:bg-primary/20 selection:text-primary">
